@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", routes);
-app.use("/api", Noteroutes);
+app.use("/api/user", Noteroutes);
 
 app.get("/", (req, res) => {
     res.status(200).send({
