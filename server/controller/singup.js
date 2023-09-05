@@ -1,4 +1,6 @@
 const userModel = require("../models/User.Schema");
+const emailValidator = require("email-validator");
+
 const singup = async (req, res) => {
     const { name, email, password, confrimPassword,bio } = req.body;
     console.log(name);
@@ -9,7 +11,26 @@ const singup = async (req, res) => {
             message: "Ever Field is required",
           });
         }
+
         // check for valid Email format
+        let ValidEmail = emailValidator.validate(email);
+        if (!ValidEmail) {
+          return res.status(400).send({
+            success: false,
+            message: "please provide valid email",
+          });
+        }
+         // check for valid password format
+        let Validpassword = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+        if (Validpassword  === password) {
+          return res.status(400).send({
+            success: false,
+            message: "Password must be Minimum eight characters, at least one letter and one number:",
+          });
+        }
+
+        // ...................................................
+
         if (password !== confrimPassword) {
           return res.status(400).send({
             success: false,
