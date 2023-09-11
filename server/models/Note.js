@@ -5,7 +5,6 @@ const NoteSchema = new Schema(
       user:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "user"
-
       },
       title: {
         type: String,
@@ -16,12 +15,6 @@ const NoteSchema = new Schema(
         type: String,
         require: [true, " descriptioni required"],
       },
-      bio : {
-        type:String,
-        required:true,
-        minLength: [1, "Name must be at least 5 char"],
-        maxLength: [550, "Name must be less then 50 char"],
-    },
      tag: {
         type: String,
         default: "General"
