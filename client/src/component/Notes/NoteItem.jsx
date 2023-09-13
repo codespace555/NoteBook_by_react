@@ -2,11 +2,6 @@ import React, { useState } from 'react'
 
 export default function NoteItem({title,description,tag}) {
 
-  const [like , setLike] = useState("regular")
-  const handleClick=()=>{
-    setLike("solid")
-  }
-
   return (
  
        <div className="p-4 bg-gray-200 w-80 border-2 rounded-3xl h-56 flex flex-col  justify-center ">
