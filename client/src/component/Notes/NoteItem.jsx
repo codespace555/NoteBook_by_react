@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import NoteContext from "../context/notes/noteContext";
 
-export default function NoteItem({title,description,tag}) {
+export default function NoteItem({title,description,tag,id}) {
+  const context = useContext(NoteContext);
+  const { UpdateNote ,DeleteNote } = context;
 
   return (
  
@@ -23,7 +26,7 @@ export default function NoteItem({title,description,tag}) {
     </div>
     <div className="mt-4 flex items-start justify-evenly">
     <button><i className="fa-solid fa-pen-to-square"></i></button>
-      <button><i className="fa-solid fa-trash"></i></button>
+      <button  onClick={() => {DeleteNote(id)}}><i className="fa-solid fa-trash"></i></button>
     </div>
     </div>
   )

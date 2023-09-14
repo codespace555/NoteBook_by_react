@@ -12,12 +12,17 @@ import {
 import Layout from "./component/Layout";
 import Home from "./component/Home";
 import About from "./Component/About";
+import Singup from "./component/Auth/Singup";
+import Login from "./component/Auth/Login";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="about" element={<About />} />
+      <Route path="login" element={<Login/>} />
+      <Route path="singup" element={<Singup />} />
+
     </Route>
   )
 );

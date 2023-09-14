@@ -37,9 +37,10 @@ const login = async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
       };
-      res.cookie("token", token, cookieOptions);
+      res.cookie("Authorization", token, cookieOptions);
       res.status(200).json({
         success: true,
+        token:token,
         data: user,
       });
     } catch (e) {
